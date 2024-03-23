@@ -1,0 +1,158 @@
+[09-Jul-2018 02:10:21 UTC] Drupal\Core\Database\DatabaseAccessDeniedException: SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO) in /home/trangbh/public_html/drupal/bzpro/bzpro/bzpro/core/lib/Drupal/Core/Database/Driver/mysql/Connection.php on line 156 #0 /home/trangbh/public_html/drupal/bzpro/bzpro/bzpro/core/lib/Drupal/Core/Database/Database.php(376): Drupal\Core\Database\Driver\mysql\Connection::open(Array)
+#1 /home/trangbh/public_html/drupal/bzpro/bzpro/bzpro/core/lib/Drupal/Core/Database/Database.php(166): Drupal\Core\Database\Database::openConnection('default', 'default')
+#2 [internal function]: Drupal\Core\Database\Database::getConnection('default')
+#3 /home/trangbh/public_html/drupal/bzpro/bzpro/bzpro/core/lib/Drupal/Component/DependencyInjection/PhpArrayContainer.php(79): call_user_func_array('Drupal\\Core\\Dat...', Array)
+#4 /home/trangbh/public_html/drupal/bzpro/bzpro/bzpro/core/lib/Drupal/Component/DependencyInjection/Container.php(171): Drupal\Component\DependencyInjection\PhpArrayContainer->createService(Array, 'database')
+#5 /home/trangbh/public_html/drupal/bzpro/bzpro/bzpro/core/lib/Drupal/Component/DependencyInjection/PhpArrayContainer.php(260): Drupal\Component\DependencyInjection\Container->get('database', 1)
+#6 /home/trangbh/public_html/drupal/bzpro/bzpro/bzpro/core/lib/Drupal/Component/DependencyInjection/PhpArrayContainer.php(62): Drupal\Component\DependencyInjection\PhpArrayContainer->resolveServicesAndParameters(Array)
+#7 /home/trangbh/public_html/drupal/bzpro/bzpro/bzpro/core/lib/Drupal/Component/DependencyInjection/Container.php(171): Drupal\Component\DependencyInjection\PhpArrayContainer->createService(Array, 'cache.container')
+#8 /home/trangbh/public_html/drupal/bzpro/bzpro/bzpro/core/lib/Drupal/Core/DrupalKernel.php(516): Drupal\Component\DependencyInjection\Container->get('cache.container')
+#9 /home/trangbh/public_html/drupal/bzpro/bzpro/bzpro/core/lib/Drupal/Core/DrupalKernel.php(877): Drupal\Core\DrupalKernel->getCachedContainerDefinition()
+#10 /home/trangbh/public_html/drupal/bzpro/bzpro/bzpro/core/lib/Drupal/Core/DrupalKernel.php(469): Drupal\Core\DrupalKernel->initializeContainer()
+#11 /home/trangbh/public_html/drupal/bzpro/bzpro/bzpro/core/lib/Drupal/Core/DrupalKernel.php(665): Drupal\Core\DrupalKernel->boot()
+#12 /home/trangbh/public_html/drupal/bzpro/bzpro/bzpro/index.php(19): Drupal\Core\DrupalKernel->handle(Object(Symfony\Component\HttpFoundation\Request))
+#13 {main}
+[09-Jul-2018 02:10:29 UTC] Drupal\Core\Database\DatabaseAccessDeniedException: SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO) in /home/trangbh/public_html/drupal/bzpro/bzpro/bzpro/core/lib/Drupal/Core/Database/Driver/mysql/Connection.php on line 156 #0 /home/trangbh/public_html/drupal/bzpro/bzpro/bzpro/core/lib/Drupal/Core/Database/Database.php(376): Drupal\Core\Database\Driver\mysql\Connection::open(Array)
+#1 /home/trangbh/public_html/drupal/bzpro/bzpro/bzpro/core/lib/Drupal/Core/Database/Database.php(166): Drupal\Core\Database\Database::openConnection('default', 'default')
+#2 [internal function]: Drupal\Core\Database\Database::getConnection('default')
+#3 /home/trangbh/public_html/drupal/bzpro/bzpro/bzpro/core/lib/Drupal/Component/DependencyInjection/PhpArrayContainer.php(79): call_user_func_array('Drupal\\Core\\Dat...', Array)
+#4 /home/trangbh/public_html/drupal/bzpro/bzpro/bzpro/core/lib/Drupal/Component/DependencyInjection/Container.php(171): Drupal\Component\DependencyInjection\PhpArrayContainer->createService(Array, 'database')
+#5 /home/trangbh/public_html/drupal/bzpro/bzpro/bzpro/core/lib/Drupal/Component/DependencyInjection/PhpArrayContainer.php(260): Drupal\Component\DependencyInjection\Container->get('database', 1)
+#6 /home/trangbh/public_html/drupal/bzpro/bzpro/bzpro/core/lib/Drupal/Component/DependencyInjection/PhpArrayContainer.php(62): Drupal\Component\DependencyInjection\PhpArrayContainer->resolveServicesAndParameters(Array)
+#7 /home/trangbh/public_html/drupal/bzpro/bzpro/bzpro/core/lib/Drupal/Component/DependencyInjection/Container.php(171): Drupal\Component\DependencyInjection\PhpArrayContainer->createService(Array, 'cache.container')
+#8 /home/trangbh/public_html/drupal/bzpro/bzpro/bzpro/core/lib/Drupal/Core/DrupalKernel.php(516): Drupal\Component\DependencyInjection\Container->get('cache.container')
+#9 /home/trangbh/public_html/drupal/bzpro/bzpro/bzpro/core/lib/Drupal/Core/DrupalKernel.php(877): Drupal\Core\DrupalKernel->getCachedContainerDefinition()
+#10 /home/trangbh/public_html/drupal/bzpro/bzpro/bzpro/core/lib/Drupal/Core/DrupalKernel.php(469): Drupal\Core\DrupalKernel->initializeContainer()
+#11 /home/trangbh/public_html/drupal/bzpro/bzpro/bzpro/core/lib/Drupal/Core/DrupalKernel.php(665): Drupal\Core\DrupalKernel->boot()
+#12 /home/trangbh/public_html/drupal/bzpro/bzpro/bzpro/index.php(19): Drupal\Core\DrupalKernel->handle(Object(Symfony\Component\HttpFoundation\Request))
+#13 {main}
+[09-Jul-2018 02:11:03 UTC] Drupal\Core\Database\DatabaseAccessDeniedException: SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO) in /home/trangbh/public_html/drupal/bzpro/bzpro/bzpro/core/lib/Drupal/Core/Database/Driver/mysql/Connection.php on line 156 #0 /home/trangbh/public_html/drupal/bzpro/bzpro/bzpro/core/lib/Drupal/Core/Database/Database.php(376): Drupal\Core\Database\Driver\mysql\Connection::open(Array)
+#1 /home/trangbh/public_html/drupal/bzpro/bzpro/bzpro/core/lib/Drupal/Core/Database/Database.php(166): Drupal\Core\Database\Database::openConnection('default', 'default')
+#2 [internal function]: Drupal\Core\Database\Database::getConnection('default')
+#3 /home/trangbh/public_html/drupal/bzpro/bzpro/bzpro/core/lib/Drupal/Component/DependencyInjection/PhpArrayContainer.php(79): call_user_func_array('Drupal\\Core\\Dat...', Array)
+#4 /home/trangbh/public_html/drupal/bzpro/bzpro/bzpro/core/lib/Drupal/Component/DependencyInjection/Container.php(171): Drupal\Component\DependencyInjection\PhpArrayContainer->createService(Array, 'database')
+#5 /home/trangbh/public_html/drupal/bzpro/bzpro/bzpro/core/lib/Drupal/Component/DependencyInjection/PhpArrayContainer.php(260): Drupal\Component\DependencyInjection\Container->get('database', 1)
+#6 /home/trangbh/public_html/drupal/bzpro/bzpro/bzpro/core/lib/Drupal/Component/DependencyInjection/PhpArrayContainer.php(62): Drupal\Component\DependencyInjection\PhpArrayContainer->resolveServicesAndParameters(Array)
+#7 /home/trangbh/public_html/drupal/bzpro/bzpro/bzpro/core/lib/Drupal/Component/DependencyInjection/Container.php(171): Drupal\Component\DependencyInjection\PhpArrayContainer->createService(Array, 'cache.container')
+#8 /home/trangbh/public_html/drupal/bzpro/bzpro/bzpro/core/lib/Drupal/Core/DrupalKernel.php(516): Drupal\Component\DependencyInjection\Container->get('cache.container')
+#9 /home/trangbh/public_html/drupal/bzpro/bzpro/bzpro/core/lib/Drupal/Core/DrupalKernel.php(877): Drupal\Core\DrupalKernel->getCachedContainerDefinition()
+#10 /home/trangbh/public_html/drupal/bzpro/bzpro/bzpro/core/lib/Drupal/Core/DrupalKernel.php(469): Drupal\Core\DrupalKernel->initializeContainer()
+#11 /home/trangbh/public_html/drupal/bzpro/bzpro/bzpro/core/lib/Drupal/Core/DrupalKernel.php(665): Drupal\Core\DrupalKernel->boot()
+#12 /home/trangbh/public_html/drupal/bzpro/bzpro/bzpro/index.php(19): Drupal\Core\DrupalKernel->handle(Object(Symfony\Component\HttpFoundation\Request))
+#13 {main}
+[09-Jul-2018 02:11:57 UTC] PDOException: SQLSTATE[HY000] [2002] Connection refused in /home/trangbh/public_html/drupal/bzpro/bzpro/bzpro/core/lib/Drupal/Component/DependencyInjection/PhpArrayContainer.php on line 79 #0 /home/trangbh/public_html/drupal/bzpro/bzpro/bzpro/core/lib/Drupal/Core/Database/Driver/mysql/Connection.php(149): PDO->__construct('mysql:host=loca...', 'trangbh_bzpro', 'KwfYhzOs0c,s', Array)
+#1 /home/trangbh/public_html/drupal/bzpro/bzpro/bzpro/core/lib/Drupal/Core/Database/Database.php(376): Drupal\Core\Database\Driver\mysql\Connection::open(Array)
+#2 /home/trangbh/public_html/drupal/bzpro/bzpro/bzpro/core/lib/Drupal/Core/Database/Database.php(166): Drupal\Core\Database\Database::openConnection('default', 'default')
+#3 [internal function]: Drupal\Core\Database\Database::getConnection('default')
+#4 /home/trangbh/public_html/drupal/bzpro/bzpro/bzpro/core/lib/Drupal/Component/DependencyInjection/PhpArrayContainer.php(79): call_user_func_array('Drupal\\Core\\Dat...', Array)
+#5 /home/trangbh/public_html/drupal/bzpro/bzpro/bzpro/core/lib/Drupal/Component/DependencyInjection/Container.php(171): Drupal\Component\DependencyInjection\PhpArrayContainer->createService(Array, 'database')
+#6 /home/trangbh/public_html/drupal/bzpro/bzpro/bzpro/core/lib/Drupal/Component/DependencyInjection/PhpArrayContainer.php(260): Drupal\Component\DependencyInjection\Container->get('database', 1)
+#7 /home/trangbh/public_html/drupal/bzpro/bzpro/bzpro/core/lib/Drupal/Component/DependencyInjection/PhpArrayContainer.php(62): Drupal\Component\DependencyInjection\PhpArrayContainer->resolveServicesAndParameters(Array)
+#8 /home/trangbh/public_html/drupal/bzpro/bzpro/bzpro/core/lib/Drupal/Component/DependencyInjection/Container.php(171): Drupal\Component\DependencyInjection\PhpArrayContainer->createService(Array, 'cache.container')
+#9 /home/trangbh/public_html/drupal/bzpro/bzpro/bzpro/core/lib/Drupal/Core/DrupalKernel.php(516): Drupal\Component\DependencyInjection\Container->get('cache.container')
+#10 /home/trangbh/public_html/drupal/bzpro/bzpro/bzpro/core/lib/Drupal/Core/DrupalKernel.php(877): Drupal\Core\DrupalKernel->getCachedContainerDefinition()
+#11 /home/trangbh/public_html/drupal/bzpro/bzpro/bzpro/core/lib/Drupal/Core/DrupalKernel.php(469): Drupal\Core\DrupalKernel->initializeContainer()
+#12 /home/trangbh/public_html/drupal/bzpro/bzpro/bzpro/core/lib/Drupal/Core/DrupalKernel.php(665): Drupal\Core\DrupalKernel->boot()
+#13 /home/trangbh/public_html/drupal/bzpro/bzpro/bzpro/index.php(19): Drupal\Core\DrupalKernel->handle(Object(Symfony\Component\HttpFoundation\Request))
+#14 {main}
+[09-Jul-2018 02:12:12 UTC] PDOException: SQLSTATE[HY000] [2002] Connection refused in /home/trangbh/public_html/drupal/bzpro/bzpro/bzpro/core/lib/Drupal/Component/DependencyInjection/PhpArrayContainer.php on line 79 #0 /home/trangbh/public_html/drupal/bzpro/bzpro/bzpro/core/lib/Drupal/Core/Database/Driver/mysql/Connection.php(149): PDO->__construct('mysql:host=loca...', 'trangbh_bzpro', 'KwfYhzOs0c,s', Array)
+#1 /home/trangbh/public_html/drupal/bzpro/bzpro/bzpro/core/lib/Drupal/Core/Database/Database.php(376): Drupal\Core\Database\Driver\mysql\Connection::open(Array)
+#2 /home/trangbh/public_html/drupal/bzpro/bzpro/bzpro/core/lib/Drupal/Core/Database/Database.php(166): Drupal\Core\Database\Database::openConnection('default', 'default')
+#3 [internal function]: Drupal\Core\Database\Database::getConnection('default')
+#4 /home/trangbh/public_html/drupal/bzpro/bzpro/bzpro/core/lib/Drupal/Component/DependencyInjection/PhpArrayContainer.php(79): call_user_func_array('Drupal\\Core\\Dat...', Array)
+#5 /home/trangbh/public_html/drupal/bzpro/bzpro/bzpro/core/lib/Drupal/Component/DependencyInjection/Container.php(171): Drupal\Component\DependencyInjection\PhpArrayContainer->createService(Array, 'database')
+#6 /home/trangbh/public_html/drupal/bzpro/bzpro/bzpro/core/lib/Drupal/Component/DependencyInjection/PhpArrayContainer.php(260): Drupal\Component\DependencyInjection\Container->get('database', 1)
+#7 /home/trangbh/public_html/drupal/bzpro/bzpro/bzpro/core/lib/Drupal/Component/DependencyInjection/PhpArrayContainer.php(62): Drupal\Component\DependencyInjection\PhpArrayContainer->resolveServicesAndParameters(Array)
+#8 /home/trangbh/public_html/drupal/bzpro/bzpro/bzpro/core/lib/Drupal/Component/DependencyInjection/Container.php(171): Drupal\Component\DependencyInjection\PhpArrayContainer->createService(Array, 'cache.container')
+#9 /home/trangbh/public_html/drupal/bzpro/bzpro/bzpro/core/lib/Drupal/Core/DrupalKernel.php(516): Drupal\Component\DependencyInjection\Container->get('cache.container')
+#10 /home/trangbh/public_html/drupal/bzpro/bzpro/bzpro/core/lib/Drupal/Core/DrupalKernel.php(877): Drupal\Core\DrupalKernel->getCachedContainerDefinition()
+#11 /home/trangbh/public_html/drupal/bzpro/bzpro/bzpro/core/lib/Drupal/Core/DrupalKernel.php(469): Drupal\Core\DrupalKernel->initializeContainer()
+#12 /home/trangbh/public_html/drupal/bzpro/bzpro/bzpro/core/lib/Drupal/Core/DrupalKernel.php(665): Drupal\Core\DrupalKernel->boot()
+#13 /home/trangbh/public_html/drupal/bzpro/bzpro/bzpro/index.php(19): Drupal\Core\DrupalKernel->handle(Object(Symfony\Component\HttpFoundation\Request))
+#14 {main}
+[09-Jul-2018 02:12:15 UTC] PDOException: SQLSTATE[HY000] [2002] Connection refused in /home/trangbh/public_html/drupal/bzpro/bzpro/bzpro/core/lib/Drupal/Component/DependencyInjection/PhpArrayContainer.php on line 79 #0 /home/trangbh/public_html/drupal/bzpro/bzpro/bzpro/core/lib/Drupal/Core/Database/Driver/mysql/Connection.php(149): PDO->__construct('mysql:host=loca...', 'trangbh_bzpro', 'KwfYhzOs0c,s', Array)
+#1 /home/trangbh/public_html/drupal/bzpro/bzpro/bzpro/core/lib/Drupal/Core/Database/Database.php(376): Drupal\Core\Database\Driver\mysql\Connection::open(Array)
+#2 /home/trangbh/public_html/drupal/bzpro/bzpro/bzpro/core/lib/Drupal/Core/Database/Database.php(166): Drupal\Core\Database\Database::openConnection('default', 'default')
+#3 [internal function]: Drupal\Core\Database\Database::getConnection('default')
+#4 /home/trangbh/public_html/drupal/bzpro/bzpro/bzpro/core/lib/Drupal/Component/DependencyInjection/PhpArrayContainer.php(79): call_user_func_array('Drupal\\Core\\Dat...', Array)
+#5 /home/trangbh/public_html/drupal/bzpro/bzpro/bzpro/core/lib/Drupal/Component/DependencyInjection/Container.php(171): Drupal\Component\DependencyInjection\PhpArrayContainer->createService(Array, 'database')
+#6 /home/trangbh/public_html/drupal/bzpro/bzpro/bzpro/core/lib/Drupal/Component/DependencyInjection/PhpArrayContainer.php(260): Drupal\Component\DependencyInjection\Container->get('database', 1)
+#7 /home/trangbh/public_html/drupal/bzpro/bzpro/bzpro/core/lib/Drupal/Component/DependencyInjection/PhpArrayContainer.php(62): Drupal\Component\DependencyInjection\PhpArrayContainer->resolveServicesAndParameters(Array)
+#8 /home/trangbh/public_html/drupal/bzpro/bzpro/bzpro/core/lib/Drupal/Component/DependencyInjection/Container.php(171): Drupal\Component\DependencyInjection\PhpArrayContainer->createService(Array, 'cache.container')
+#9 /home/trangbh/public_html/drupal/bzpro/bzpro/bzpro/core/lib/Drupal/Core/DrupalKernel.php(516): Drupal\Component\DependencyInjection\Container->get('cache.container')
+#10 /home/trangbh/public_html/drupal/bzpro/bzpro/bzpro/core/lib/Drupal/Core/DrupalKernel.php(877): Drupal\Core\DrupalKernel->getCachedContainerDefinition()
+#11 /home/trangbh/public_html/drupal/bzpro/bzpro/bzpro/core/lib/Drupal/Core/DrupalKernel.php(469): Drupal\Core\DrupalKernel->initializeContainer()
+#12 /home/trangbh/public_html/drupal/bzpro/bzpro/bzpro/core/lib/Drupal/Core/DrupalKernel.php(665): Drupal\Core\DrupalKernel->boot()
+#13 /home/trangbh/public_html/drupal/bzpro/bzpro/bzpro/index.php(19): Drupal\Core\DrupalKernel->handle(Object(Symfony\Component\HttpFoundation\Request))
+#14 {main}
+[09-Jul-2018 02:12:17 UTC] PDOException: SQLSTATE[HY000] [2002] Connection refused in /home/trangbh/public_html/drupal/bzpro/bzpro/bzpro/core/lib/Drupal/Component/DependencyInjection/PhpArrayContainer.php on line 79 #0 /home/trangbh/public_html/drupal/bzpro/bzpro/bzpro/core/lib/Drupal/Core/Database/Driver/mysql/Connection.php(149): PDO->__construct('mysql:host=loca...', 'trangbh_bzpro', 'KwfYhzOs0c,s', Array)
+#1 /home/trangbh/public_html/drupal/bzpro/bzpro/bzpro/core/lib/Drupal/Core/Database/Database.php(376): Drupal\Core\Database\Driver\mysql\Connection::open(Array)
+#2 /home/trangbh/public_html/drupal/bzpro/bzpro/bzpro/core/lib/Drupal/Core/Database/Database.php(166): Drupal\Core\Database\Database::openConnection('default', 'default')
+#3 [internal function]: Drupal\Core\Database\Database::getConnection('default')
+#4 /home/trangbh/public_html/drupal/bzpro/bzpro/bzpro/core/lib/Drupal/Component/DependencyInjection/PhpArrayContainer.php(79): call_user_func_array('Drupal\\Core\\Dat...', Array)
+#5 /home/trangbh/public_html/drupal/bzpro/bzpro/bzpro/core/lib/Drupal/Component/DependencyInjection/Container.php(171): Drupal\Component\DependencyInjection\PhpArrayContainer->createService(Array, 'database')
+#6 /home/trangbh/public_html/drupal/bzpro/bzpro/bzpro/core/lib/Drupal/Component/DependencyInjection/PhpArrayContainer.php(260): Drupal\Component\DependencyInjection\Container->get('database', 1)
+#7 /home/trangbh/public_html/drupal/bzpro/bzpro/bzpro/core/lib/Drupal/Component/DependencyInjection/PhpArrayContainer.php(62): Drupal\Component\DependencyInjection\PhpArrayContainer->resolveServicesAndParameters(Array)
+#8 /home/trangbh/public_html/drupal/bzpro/bzpro/bzpro/core/lib/Drupal/Component/DependencyInjection/Container.php(171): Drupal\Component\DependencyInjection\PhpArrayContainer->createService(Array, 'cache.container')
+#9 /home/trangbh/public_html/drupal/bzpro/bzpro/bzpro/core/lib/Drupal/Core/DrupalKernel.php(516): Drupal\Component\DependencyInjection\Container->get('cache.container')
+#10 /home/trangbh/public_html/drupal/bzpro/bzpro/bzpro/core/lib/Drupal/Core/DrupalKernel.php(877): Drupal\Core\DrupalKernel->getCachedContainerDefinition()
+#11 /home/trangbh/public_html/drupal/bzpro/bzpro/bzpro/core/lib/Drupal/Core/DrupalKernel.php(469): Drupal\Core\DrupalKernel->initializeContainer()
+#12 /home/trangbh/public_html/drupal/bzpro/bzpro/bzpro/core/lib/Drupal/Core/DrupalKernel.php(665): Drupal\Core\DrupalKernel->boot()
+#13 /home/trangbh/public_html/drupal/bzpro/bzpro/bzpro/index.php(19): Drupal\Core\DrupalKernel->handle(Object(Symfony\Component\HttpFoundation\Request))
+#14 {main}
+[08-Jul-2018 23:01:23 America/New_York] Uncaught PHP Exception GuzzleHttp\Exception\ClientException: "Client error: `GET http://vimeo.com/api/v2/video/.php` resulted in a `404 Not Found` response:
+<!DOCTYPE html>
+<!--     _
+  __   _|_|_ __ ___   ___  ___
+  \ \ / / | '_ ' _ \ / _ \/ _ \
+   \ V /| | | | | | |  __/ |_| (truncated...)
+" at /home/trangbh/public_html/drupal/bzpro/bzpro/bzpro/vendor/guzzlehttp/guzzle/src/Exception/RequestException.php line 113
+[08-Jul-2018 23:01:27 America/New_York] Uncaught PHP Exception GuzzleHttp\Exception\ClientException: "Client error: `GET http://vimeo.com/api/v2/video/.php` resulted in a `404 Not Found` response:
+<!DOCTYPE html>
+<!--     _
+  __   _|_|_ __ ___   ___  ___
+  \ \ / / | '_ ' _ \ / _ \/ _ \
+   \ V /| | | | | | |  __/ |_| (truncated...)
+" at /home/trangbh/public_html/drupal/bzpro/bzpro/bzpro/vendor/guzzlehttp/guzzle/src/Exception/RequestException.php line 113
+[08-Jul-2018 23:01:34 America/New_York] Uncaught PHP Exception GuzzleHttp\Exception\ClientException: "Client error: `GET http://vimeo.com/api/v2/video/.php` resulted in a `404 Not Found` response:
+<!DOCTYPE html>
+<!--     _
+  __   _|_|_ __ ___   ___  ___
+  \ \ / / | '_ ' _ \ / _ \/ _ \
+   \ V /| | | | | | |  __/ |_| (truncated...)
+" at /home/trangbh/public_html/drupal/bzpro/bzpro/bzpro/vendor/guzzlehttp/guzzle/src/Exception/RequestException.php line 113
+[08-Jul-2018 23:01:34 America/New_York] Uncaught PHP Exception GuzzleHttp\Exception\ClientException: "Client error: `GET http://vimeo.com/api/v2/video/.php` resulted in a `404 Not Found` response:
+<!DOCTYPE html>
+<!--     _
+  __   _|_|_ __ ___   ___  ___
+  \ \ / / | '_ ' _ \ / _ \/ _ \
+   \ V /| | | | | | |  __/ |_| (truncated...)
+" at /home/trangbh/public_html/drupal/bzpro/bzpro/bzpro/vendor/guzzlehttp/guzzle/src/Exception/RequestException.php line 113
+[08-Jul-2018 23:01:34 America/New_York] Uncaught PHP Exception GuzzleHttp\Exception\ClientException: "Client error: `GET http://vimeo.com/api/v2/video/.php` resulted in a `404 Not Found` response:
+<!DOCTYPE html>
+<!--     _
+  __   _|_|_ __ ___   ___  ___
+  \ \ / / | '_ ' _ \ / _ \/ _ \
+   \ V /| | | | | | |  __/ |_| (truncated...)
+" at /home/trangbh/public_html/drupal/bzpro/bzpro/bzpro/vendor/guzzlehttp/guzzle/src/Exception/RequestException.php line 113
+[08-Jul-2018 23:01:35 America/New_York] Uncaught PHP Exception GuzzleHttp\Exception\ClientException: "Client error: `GET http://vimeo.com/api/v2/video/.php` resulted in a `404 Not Found` response:
+<!DOCTYPE html>
+<!--     _
+  __   _|_|_ __ ___   ___  ___
+  \ \ / / | '_ ' _ \ / _ \/ _ \
+   \ V /| | | | | | |  __/ |_| (truncated...)
+" at /home/trangbh/public_html/drupal/bzpro/bzpro/bzpro/vendor/guzzlehttp/guzzle/src/Exception/RequestException.php line 113
+[08-Jul-2018 23:01:35 America/New_York] Uncaught PHP Exception GuzzleHttp\Exception\ClientException: "Client error: `GET http://vimeo.com/api/v2/video/.php` resulted in a `404 Not Found` response:
+<!DOCTYPE html>
+<!--     _
+  __   _|_|_ __ ___   ___  ___
+  \ \ / / | '_ ' _ \ / _ \/ _ \
+   \ V /| | | | | | |  __/ |_| (truncated...)
+" at /home/trangbh/public_html/drupal/bzpro/bzpro/bzpro/vendor/guzzlehttp/guzzle/src/Exception/RequestException.php line 113
+[08-Jul-2018 23:01:35 America/New_York] Uncaught PHP Exception GuzzleHttp\Exception\ClientException: "Client error: `GET http://vimeo.com/api/v2/video/.php` resulted in a `404 Not Found` response:
+<!DOCTYPE html>
+<!--     _
+  __   _|_|_ __ ___   ___  ___
+  \ \ / / | '_ ' _ \ / _ \/ _ \
+   \ V /| | | | | | |  __/ |_| (truncated...)
+" at /home/trangbh/public_html/drupal/bzpro/bzpro/bzpro/vendor/guzzlehttp/guzzle/src/Exception/RequestException.php line 113

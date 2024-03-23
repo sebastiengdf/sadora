@@ -1,0 +1,477 @@
+<?php
+global $base_url;
+global $head_title;
+global $product_entity;
+global $region;
+use Drupal\file\Entity\File;
+use Drupal\image\Entity\ImageStyle;
+use Drupal\Core\Form\FormBase;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Component\Utility\UrlHelper;
+use Drupal\Core\Asset\AttachedAssetsInterface;
+use Drupal\block\Entity\Block;
+use Drupal\taxonomy\Entity\Term;
+
+
+
+function bzpro_theme_suggestions_page_alter(array &$suggestions, array $variables) {
+    if ($node = \Drupal::routeMatch()->getParameter('node')) {
+        $suggestions[] = 'page__node__' . $node->getType();
+    }
+    if (\Drupal::routeMatch()->getRouteName() == 'entity.taxonomy_term.canonical' && $tid = \Drupal::routeMatch()->getRawParameter('taxonomy_term')) {
+        $term = Term::load($tid);
+        $suggestions[] = 'page__taxonomy__' . $term->getVocabularyId();
+    }
+}
+
+function bzpro_theme_suggestions_block_alter(array &$suggestions, array $variables) {
+  
+  // return $suggestions;
+}
+
+function bzpro_preprocess_block(&$variables) {
+    
+    global $base_url,$region;
+
+    switch ($variables['base_plugin_id']) {
+        case 'system_branding_block':
+            $variables['site_logo'] = '';
+            if ($variables['content']['site_logo']['#access'] && $variables['content']['site_logo']['#uri']) {
+                $variables['site_logo'] = str_replace('.svg', '.png', $variables['content']['site_logo']['#uri']);
+            }
+            break;
+    }
+
+
+    if (isset($variables['elements']['#id']) && !empty($variables['elements']['#id'])) {
+        $block_id   = $variables['elements']['#id'];
+        $block      = \Drupal\block\Entity\Block::load($block_id);
+        if ($block->getRegion()) {
+            $region = $block->getRegion();
+            $variables['region'] = $region;
+        }
+        //config as context module
+    } else {
+        $variables['region'] = $variables['elements']['#configuration']['region'];
+    }
+    $region = $variables['region'];
+}
+
+function bzpro_preprocess_node(&$variables) {
+
+    global $base_root;
+
+    $variables['base_root'] = $base_root;
+    $ntype = $variables['node']->getType();
+    $site_name = \Drupal::config('system.site')->get('name');
+    $variables['site_name'] = $site_name;
+    $request = \Drupal::request();
+
+    if ($route = $request->attributes->get(\Symfony\Cmf\Component\Routing\RouteObjectInterface::ROUTE_OBJECT)) {
+        $variables['title'] = \Drupal::service('title_resolver')->getTitle($request, $route);
+    }   
+
+}
+
+
+/**
+ * Implements template_preprocess_html().
+ */
+function bzpro_preprocess_html(&$variables) {
+
+    global $base_url, $head_title;
+
+    $head_title = $variables['head_title'];
+    $theme      = \Drupal::theme()->getActiveTheme()->getName();
+    $variables['attributes']['class'][] = 'ltr';
+    $variables['general_setting_tracking_code'] = theme_get_setting('general_setting_tracking_code', $theme);
+    $variables['custom_css'] = theme_get_setting('custom_css', $theme);
+    $node       = \Drupal::routeMatch()->getParameter('node');
+    $variables['theme_path'] = drupal_get_path('theme', $theme);
+    /*$variables['#attached']['library'][] = 'bzpro/bzpro-lib';*/
+  
+}
+
+
+/**
+ * Implements template_preprocess_page().
+ */
+function bzpro_preprocess_page(&$variables) {
+
+    global $base_root, $base_url;
+
+    $node   = \Drupal::routeMatch()->getParameter('node');
+    $theme  = \Drupal::theme()->getActiveTheme()->getName();
+    $variables['theme_path'] = drupal_get_path('theme', $theme);
+    $variables['base_url'] = $base_url;
+    $request = \Drupal::request();
+
+    if ($route = $request->attributes->get(\Symfony\Cmf\Component\Routing\RouteObjectInterface::ROUTE_OBJECT)) {
+        $variables['title'] = \Drupal::service('title_resolver')->getTitle($request, $route);
+    }
+        
+    if ($node = \Drupal::routeMatch()->getParameter('node')) {
+        $variables['type'] = $node->getType();
+    }
+    $variables['curent_path'] = \Drupal::service('path.current')->getPath();
+   
+}
+
+
+function bzpro_form_search_block_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id){
+
+    if(preg_match('/search_block_form/i', $form_id)){
+        unset($form['search_block_form']['#title']); // remove label form
+        $form['keys']['#attributes']['placeholder'][] = 'Search...';
+        $form['keys']['#attributes']['class'][] = 'search-text';
+        $form['keys']['#suffix'] = '<a class="search-button" href="#"> <i class="fa fa-search" aria-hidden="true"></i> </a>';
+        $form['actions']['submit']['#value'] = t('&#xf002;'); // Change the text on the submit button
+        $form['actions']['submit']['#attributes']['class'] = array('fa');
+        $form['#attributes']['class'] = array('sidebar-search widget-margin');
+        $form['actions']['submit']['#attributes']['data-webform-submit'] = 'search_submit';
+    }
+}
+
+
+function bzpro_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id){
+    global $region;
+    if(preg_match('/views_exposed_form/i', $form_id)){
+        $form['actions']['submit']['#attributes']['class'] = array('hidden');
+        $form['sort_by']['#attributes']['onchange'] = 'if(this.value != 0) { this.form.submit(); }';
+    }elseif(preg_match('/simplenews_subscriptions_block/i', $form_id)){
+        if($region == 'section' ){
+            $form['actions']['subscribe']['#attributes']['class'] = array('fa');
+            $form['actions']['subscribe']['#value'] = t('&#xf1d9; Subscribe');
+        }else{
+            $form['actions']['subscribe']['#attributes']['class'] = array('fa');
+            $form['actions']['subscribe']['#value'] = t('&#xf1d9;');
+        }
+    }
+    
+    
+}
+
+function bzpro_preprocess(&$variables){
+   global $product_entity;
+    $variables['is_front'] = \Drupal::service('path.matcher')->isFrontPage();
+    $variables['type'] = '';
+    if ($node = \Drupal::routeMatch()->getParameter('node')) {
+        $variables['type'] = $node->getType();
+    }
+
+    // xóa cache của url
+    $variables['#cache']['contexts'][] = 'url';
+    $variables['header_style'] = theme_get_setting('header_layout', 'bzpro');
+    //đang thử
+    $variables['blog_style'] = theme_get_setting('blog_layout', 'bzpro');
+    $variables['blog_sidebar']    = theme_get_setting('blog_sidebar', 'bzpro');
+
+    $variables['products_sidebar'] = theme_get_setting('products_sidebar', 'bzpro');
+    //test
+    $products_sidebar=\Drupal::request()->query->get('sidebar');
+    if(isset($products_sidebar)){
+        $variables['products_sidebar']=\Drupal::request()->query->get('sidebar');
+    }
+    $variables['blog_style'] = \Drupal::request()->query->get('style');
+    $variables['blog_sidebar'] = \Drupal::request()->query->get('sidebar');
+
+    if(isset($variables['product_entity'])){
+      $product_entity =  $variables['product_entity'];
+    }
+    if(!empty($product_entity)){
+        $variables['product_entity'] = $product_entity;
+    }
+
+    // Background in html.html.twig field
+    $background = theme_get_setting('default_breadcrumb_image', 'bzpro');
+    if (!empty($background)) {
+        $file   = file_load($background[0]);
+        $uri    = $file->getFileUri();
+        $path   = file_create_url($uri);
+        $variables['theme_page_header_bg'] = $path;
+    } else {
+        $variables['theme_page_header_bg'] = '';
+    }
+
+    
+    //hết
+    $pageURL = 'http';  
+    if(!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on'){
+        $pageURL .= "s";
+    }
+    $pageURL .= '://';
+    if($_SERVER['SERVER_PORT'] != '80'){
+    $pageURL .= $_SERVER['SERVER_NAME'].":".$_SERVER['SERVER_PORT'].$_SERVER['REQUEST_URI'];
+    }else{
+        $pageURL .= $_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'];
+    }
+    $variables['pageURL'] = $pageURL;
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+    // if (\Drupal::routeMatch()->getRouteName() == 'entity.taxonomy_term.canonical') {
+    //     $term_id = \Drupal::routeMatch()->getRawParameter('taxonomy_term');
+    //     $term = taxonomy_term_load($term_id);
+
+    //     $vv = $term->vid->getValue();
+    //     $vp = $vv[0];
+    //     $vn = $vp['target_id'];
+    //     $vname = $vn;
+    //     //$variables['v_name'] = $vname;
+    //     $current_term_id = $term_id;
+
+    //     //PRODUCTS
+        
+    //     $storage = \Drupal::entityTypeManager()->getStorage('commerce_product');
+
+    //     if(isset($_GET['page']) && is_numeric($_GET['page'])){
+    //         $page = $_GET['page'];
+    //     }else{
+    //         $page = 0;
+    //     }
+
+    //     //-----------Config pager---------///
+    //     /*if(theme_get_setting('product_page_taxonomy_items_per_page','plash') && theme_get_setting('product_page_taxonomy_items_per_page','plash') > 0){
+    //         $number_rows_per_page = theme_get_setting('product_page_taxonomy_items_per_page','plash');
+    //     }else{*/
+    //         $number_rows_per_page = 4;
+    //     //}
+    //     if($vname == 'categories'){
+    //         //count rows
+    //         $pids_rows = $storage->getQuery()
+    //                 //->condition('type', 'clothing')
+    //                 ->condition('status', 1)
+    //                 //->condition('product_id', $current_product_id, '!=')
+    //                 ->condition('field_categories.target_id', $current_term_id, 'in')
+    //                 ->sort('created','DESC')
+    //                 ->execute();
+    //         $count_pids_rows = count($pids_rows);
+    //         $pids = $storage->getQuery()
+    //                 ->condition('type', 'clothing')
+    //                 ->condition('status', 1)
+    //                 //->condition('product_id', $current_product_id, '!=')
+    //                 ->condition('field_categories.target_id', $current_term_id, 'in')
+    //                 ->sort('created','DESC')
+    //                 ->range($page * $number_rows_per_page, $number_rows_per_page)
+    //                 ->execute();
+        
+    //         }
+    //         elseif($vname == 'product_tags')
+    //         {
+    //         $pids_rows = $storage->getQuery()
+    //                 //->condition('type', 'clothing')
+    //                 ->condition('status', 1)
+    //                 //->condition('product_id', $current_product_id, '!=')
+    //                 ->condition('field_tags.target_id', $current_term_id, 'in')
+    //                 ->sort('created','DESC')
+    //                 ->execute();
+    //         $count_pids_rows = count($pids_rows);
+    //         $pids = $storage->getQuery()
+    //                 ->condition('type', 'clothing')
+    //                 ->condition('status', 1)
+    //                 //->condition('product_id', $current_product_id, '!=')
+    //                 ->condition('field_tags.target_id', $current_term_id, 'in')
+    //                 ->sort('created','DESC')
+    //                 ->range($page * $number_rows_per_page, $number_rows_per_page)
+    //                 ->execute();
+    //     }else{
+    //         $pids = '';
+    //         $count_pids_rows = 0;
+    //     }
+               
+    //     $product_array = array();
+    //     if(isset($pids) && !empty($pids)){
+    //         $i = 0;
+    //         foreach (entity_load_multiple('commerce_product', $pids) as $key => $product) {
+    //             //product id
+    //             //kint($product);
+    //             //$build_addtocart = $product->variations->view('product_view');
+    //             //variation id 
+                
+    //             //get image
+    //             $fid = $product->getVariations()[0]->toArray()['field_image'][0]['target_id'];
+                
+
+    //             $file = \Drupal\file\Entity\File::load($fid);
+    //             $path_uri = $file->getFileUri();
+                
+    //             //crop image
+    //             $style = ImageStyle::load('image_454x656');
+    //             if($style){
+    //                 $image_454x656_url = $style->buildUrl($path_uri);
+    //             }else{
+    //                 $image_454x656_url = '';
+    //             }
+    //            // kint($image_454x656_url);die;
+    //             //GET URL PRODUCT
+    //             $pd_id = $product->product_id->value;
+    //             $options = ['absolute' => TRUE];
+    //             $url_object = \Drupal\Core\Url::fromRoute('entity.commerce_product.canonical', ['commerce_product' =>$pd_id], $options);
+    //             //get price
+    //             //$price = $product->getVariations()[0]->toArray()['price'][0]['number'];
+    //             //kint($product->getVariations()[0]->toArray()['field_price'][0]['target_id']);exit;
+    //             //kint($price);exit;
+                
+    //             //ADD TO CART BTN
+    //            // $build_addtocart = $product->variations->view('product_view');
+
+    //             $product_array[$i] = '<div class="col-md-6">
+    //                   <div class="product_list">
+    //                     <div class="product_image"> <a href="'.$url_object->toString().'"><img src="'.$image_454x656_url.'" alt="'.$product->title->value.'"></a>
+    //                     </div>
+    //                     <div class="product_desc">
+    //                       <div class="product_title">
+    //                         <h2><a href="'.$url_object->toString().'">'.$product->title->value.'</a></h2>
+    //                       </div>
+    //                       <div class="product_price">
+    //                         <p>$</p>
+    //                       </div>
+                          
+    //                       <div class="product_btn"></div>
+    //                     </div>
+    //                   </div>
+    //                 </div>';
+                  
+    //             $i++;
+    //            // $addtocart_btn = \Drupal::service('renderer')->renderRoot($build_addtocart);
+    //             // kint($addtocart_btn);
+    //         }
+            
+    //         $product_array = array();
+    //         $i = 0;
+    //         //$shop_catalog_style = $variables['shop_catalog_style'];
+    //         foreach (entity_load_multiple('commerce_product', $pids) as $key => $pd) {
+
+                
+
+    //             //add to cart
+
+    //             $build_addtocart = $pd->variations->view('default');
+    //             //$addtocart_btn = \Drupal::service('renderer')->renderRoot($build_addtocart);
+    //             render($addtocart_btn);
+    //             $addtocart_btn = str_replace('button button--primary js-form-submit form-submit btn btn-submit','fa', $addtocart_btn);
+                
+    //             $addtocart_btn = str_replace('class="plash-commerce-form-add-to-cart"', 'class="plash-commerce-rl-form-add-to-cart"', $addtocart_btn);
+    //             $addtocart_btn = str_replace('field--name-quantity field--widget-commerce-quantity', 'field--name-quantity field--widget-commerce-quantity hidden', $addtocart_btn);
+    //             //$addtocart_btn = str_replace('', '', '');
+    //             //images
+    //             $build_product_image = $pd->field_product_image->view('default');
+    //             if($build_product_image['#items'][0]){
+    //                 $pd_imageone_uri = $build_product_image['#items']->entity->uri->value;
+    //             }else{
+    //                 $pd_imageone_uri = '';
+    //             }
+    //             if(isset($pd_imageone_uri) && !empty($pd_imageone_uri)){
+    //                 $style = ImageStyle::load('image_800x800');
+    //                 $url = $style->buildUrl($pd_imageone_uri);
+    //                 $pd_imageone_url_image_800x800 = $url;
+
+
+    //             }else{
+    //                 $pd_imageone_url_image_800x800 = '';
+    //             }
+    //             $status = $pd->field_status->value;
+    //             //variation price
+    //             $variations_build = $pd->variations->view('related_products');
+    //             $variation_price_el = \Drupal::service('renderer')->renderRoot($variations_build);
+    //             $variation_price_striptags = strip_tags($variation_price_el);
+    //             $variation_price = trim($variation_price_striptags);
+    //             //old price
+    //             $oldprice_build = $pd->field_old_price->view('default');
+    //             $oldprice_el = \Drupal::service('renderer')->renderRoot($oldprice_build);
+    //             $oldprice_striptags = strip_tags($oldprice_el);
+    //             $old_price = trim($oldprice_striptags);
+    //             //
+
+
+
+   
+    //             $product_array[$i] = '<article class="post">
+    //                             <figure>
+    //                                 <div class="text-overlay">
+    //                                     <div class="info"><span><a href="'.$url_object->toString().'">View + Details</a></span></div>
+    //                                     <div class="meta">
+    //                                         <ul>
+    //                                             <li>'.render($addtocart_btn).'</li>
+    //                                         </ul>
+    //                                     </div>
+    //                                 </div>
+    //                                 '.($status ? '<span class="sale">'.$status.'</span>' : '').'
+    //                                 <img src="'.$pd_imageone_url_image_800x800.'" alt="'.$pd->title->value.'" />
+    //                             </figure>
+    //                             <section class="post-content">
+    //                                 <h5><a href="'.$url_object->toString().'">'.$pd->title->value.'</a></h5>
+    //                                 <div class="price">
+    //                                     <del><span>'.$old_price.'</span></del>
+    //                                     <span>'.($variation_price ? $variation_price : '').'</span>
+    //                                 </div>
+    //                             </section>
+    //                         </article>';
+                            
+    //             //$output[$i] = $url_object->toString();
+            
+    //             $i++;
+    //         }
+    //         if(isset($product_array) && !empty($product_array)){
+    //             $variables['product_taxonomy_term_content'] = $product_array;
+    //         }
+            
+    //         // Pager Starts 
+    //         if($number_rows_per_page < $count_pids_rows){
+
+    //             $number_page = $count_pids_rows / $number_rows_per_page;
+    //             $number_page = ceil($number_page);
+    //             $product_txnm_pager = '<div class="clearfix"></div><div class="sep30"></div><div class="pagination"><ul>';
+    //             //first page
+    //             //if($page != 0){
+    //             //  $product_txnm_pager .= '<li><a href="'.$variables['plash_current_path'].'?page=0" title="'.t('Go to first page').'">'.t('First').'</a></li>';
+    //             //}
+    //             //previous page
+    //             if($page > 0){
+    //                 $product_txnm_pager .= '<li><a href="?page='.($page - 1).'" title="'.t('Go to previous page').'">Prev</a></li>';
+    //             }
+
+    //             //page items
+    //             for($i = 0; $i < $number_page; $i++){
+
+    //                 $product_txnm_pager .= '<li><a'.($page == $i ? ' class="current"' : '').' href="'.($page == $i ? '#' : '?page='.$i).'" title="'.($page == $i ? t('Current page') : t('Go to page '.($i+1).'')).'">'.($i+1).'</a></li>';
+
+    //             }
+    //             //next page
+    //             if($page >= 0 && $page < $number_page - 1){
+    //                 $product_txnm_pager .= '<li><a href="?page='.($page + 1).'" title="'.t('Go to next page').'">Next</a></li>';
+    //             }       
+    //             //last page
+    //             ///*if($page != $number_page - 1){
+    //             //  $product_txnm_pager .= '<li><a href="'.$variables['plash_current_path'].'?page='.($number_page - 1).'" title="'.t('Go to last page').'">'.t('Last').'</a></li>';
+    //             //}
+
+
+    //             $product_txnm_pager .= '</ul></div>';
+    //         }
+    //         //Pager Ends 
+            
+
+    //         //pager
+    //         if(isset($product_txnm_pager) && !empty($product_txnm_pager)){
+    //             $variables['product_txnm_pager'] = $product_txnm_pager;
+    //         }
+           
+           
+    //     }
+    //     //PRODUCTs ENDS
+        
+    // }
+
+}
+
+
+function bzpro_preprocess_breadcrumb(&$variables) {
+    global $head_title;
+    if ($variables['breadcrumb'] && isset($head_title['title'])) {
+        $variables['breadcrumb'][] = array(
+            'text' => $head_title['title'],
+        );
+    }
+}
+
+
+

@@ -1,0 +1,363 @@
+{% if node.field_header_style.value  %}
+  {% set header_style = node.field_header_style.value %}
+{% endif %}
+{% if header_style == 'header1' %}
+  <nav>
+    {% if page.top_header %}
+      <div class="nav-top">
+        <div class="container">
+          <div class="row">
+            {{ page.top_header }}
+          </div>
+        </div>
+      </div>
+    {% endif %}
+    <div class="top-area nav-two">
+      <div class="header-top-area" id="sticker">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+              {{ page.header  }}
+            </div>
+            <div class="col-lg-7 col-md-7 col-sm-9 col-xs-12">
+              <div class="main-menu">
+                {% if page.main_menu %}
+                  {{ page.main_menu }}
+                {% endif %}
+              </div>
+            </div>
+            <div class="col-lg-2 col-md-2 col-sm-3 col-xs-12">
+              <div class="header-top-right">
+                <ul>
+                  {% if page.search %}
+                  <li>
+                    <div class="header-top-search search-box">
+                      {{ page.search }}
+                    </div>
+                  </li>
+                  {% endif %}
+                  <li> 
+                        {{ page.cart }}
+                  </li>
+                  <li>
+                   
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- mobile-menu-area start -->
+    <div class="mobile-menu-area">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="mobile-menu">
+              {% if page.main_menu %}
+                {{ page.main_menu }}
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- mobile-menu-area end --> 
+  </nav>
+{% elseif header_style == 'header2' %}
+<nav>
+  <div class="header-one">
+    <div class="header-top-area" id="sticker">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+            {{ page.header  }}
+          </div>
+          <div class="col-lg-7 col-md-7 col-sm-9 col-xs-12">
+            <div class="main-menu">
+              {% if page.main_menu %}
+                  {{ page.main_menu }}
+              {% endif %}
+            </div>
+          </div>
+          <div class="col-lg-2 col-md-2 col-sm-3 col-xs-12">
+            <div class="header-top-right">
+              <ul>
+                <li>
+                  <div class="header-top-search search-box">
+                    {{ page.search }}
+                  </div>
+                </li>
+                
+                <li>
+                  <div class="additional-menu-area" id="additional-menu-area">
+                    <div id="mySidenav" class="sidenav"> <a href="index3.html#" class="closebtn">×</a>
+                      <div class="sidenav-search bzsidenav">
+                          <div class="input-group stylish-input-group">
+                            {% if page.search %}
+                            {{ page.search }}
+                            {% endif %}
+                          </div>
+                        </div>
+                        <ul class="sidenav-nav">
+                          {% if page.sidenav %}
+                          {{ page.sidenav }}
+                          {% endif %}
+                        </ul>
+                      <!-- times--> 
+                    </div>
+                    <span class="side-menu-open side-menu-trigger"><i class="fa fa-bars" aria-hidden="true"></i></span> </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- mobile-menu-area start -->
+  <div class="mobile-menu-area">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="mobile-menu">
+            {% if page.main_menu %}
+                {{ page.main_menu }}
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- mobile-menu-area end --> 
+</nav>
+{% elseif header_style == 'header3' %}
+
+<nav>
+  <div class="nav-top">
+    {% if page.top_header %}
+      <div class="nav-top">
+        <div class="container">
+          <div class="row">
+            {{ page.top_header }}
+          </div>
+        </div> 
+      </div>
+    {% endif %}
+  </div>
+  <div class="header1-area nav-two header-four">
+    <div class="header-top-area" id="sticker">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+            {{ page.header  }}
+          </div>
+          <div class="col-lg-7 col-md-7 col-sm-9 col-xs-12">
+            <div class="main-menu">
+              {% if page.main_menu %}
+                  {{ page.main_menu }}
+              {% endif %}
+            </div>
+          </div>
+          <div class="col-lg-2 col-md-2 col-sm-3 col-xs-12">
+            <div class="header-top-right">
+              <ul>
+                <li>
+                  <div class="header-top-search search-box">
+                    {% if page.search %}
+                            {{ page.search }}
+                            {% endif %}
+                  </div>
+                </li>
+                
+                <li>
+                  <div class="additional-menu-area" id="additional-menu-area">
+                    <div id="mySidenav" class="sidenav"> <a href="index3.html#" class="closebtn">×</a>
+                      <div class="sidenav-search">
+                        <div class="input-group stylish-input-group">
+                          {% if page.search %}
+                            {{ page.search }}
+                            {% endif %}
+                        </div>
+                      </div>
+                      <ul class="sidenav-nav">
+                      {% if page.sidenav %}
+                          {{ page.sidenav }}
+                          {% endif %}
+                      </ul>
+                      <!-- times--> 
+                    </div>
+                    <span class="side-menu-open side-menu-trigger"><i class="fa fa-bars" aria-hidden="true"></i></span> </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- mobile-menu-area start -->
+  <div class="mobile-menu-area">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="mobile-menu">
+            {% if page.main_menu %}
+                  {{ page.main_menu }}
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- mobile-menu-area end --> 
+</nav>
+{% elseif header_style == 'header4' %}
+<nav>
+  
+  <div class="top-area nav-two">
+    <div class="header-top-area" id="sticker">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+            {{page.header}}
+          </div>
+          <div class="col-lg-7 col-md-7 col-sm-9 col-xs-12">
+            <div class="main-menu">
+               {% if page.main_menu %}
+                  {{ page.main_menu }}
+              {% endif %}
+            </div>
+          </div>
+          <div class="col-lg-2 col-md-2 col-sm-3 col-xs-12">
+            <div class="header-top-right">
+              <ul>
+                <li>
+                  <div class="header-top-search search-box">
+                    {{ page.search }}
+                  </div>
+                </li>
+                <li>
+                  {{ page.cart }}
+                </li>
+                <li>
+                  <div class="additional-menu-area" id="additional-menu-area">
+                    <div id="mySidenav" class="sidenav"> <a href="index3.html#" class="closebtn">×</a>
+                      <div class="sidenav-search">
+                        <div class="input-group stylish-input-group">
+                          {{ page.search }} 
+                        </div>
+                      </div>
+                      <ul class="sidenav-nav">
+                        {% if page.sidenav %}
+                            {{ page.sidenav }}
+                        {% endif %}
+                      </ul>
+                      <!-- times--> 
+                    </div>
+                    <span class="side-menu-open side-menu-trigger"><i class="fa fa-bars" aria-hidden="true"></i></span> </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- mobile-menu-area start -->
+  <div class="mobile-menu-area">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="mobile-menu">
+             {% if page.main_menu %}
+                  {{ page.main_menu }}
+              {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- mobile-menu-area end --> 
+</nav>
+{% else %}
+ <nav>
+    {% if page.top_header %}
+      <div class="nav-top">
+        <div class="container">
+          <div class="row">
+            {{ page.top_header }}
+          </div>
+        </div>
+      </div>
+    {% endif %}
+    <div class="top-area nav-two">
+      <div class="header-top-area" id="sticker">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+              {{ page.header  }}
+            </div>
+            <div class="col-lg-7 col-md-7 col-sm-9 col-xs-12">
+              <div class="main-menu">
+                {% if page.main_menu %}
+                  {{ page.main_menu }}
+                {% endif %}
+              </div>
+            </div>
+            <div class="col-lg-2 col-md-2 col-sm-3 col-xs-12">
+              <div class="header-top-right">
+                <ul>
+                  {% if page.search %}
+                  <li>
+                    <div class="header-top-search search-box">
+                      {{ page.search }}
+                    </div>
+                  </li>
+                  {% endif %}
+                  <li> 
+                    {{ page.cart }}
+                  </li>
+                  <li>
+                    <div class="additional-menu-area" id="additional-menu-area">
+                      <div id="mySidenav" class="sidenav"> <a href="index3.html#" class="closebtn">×</a>
+                        <div class="sidenav-search bzsidenav">
+                          <div class="input-group stylish-input-group">
+                            {% if page.search %}
+                            {{ page.search }}
+                            {% endif %}  
+                          </div>
+                        </div>
+                          {% if page.sidenav %}
+                          {{ page.sidenav }}
+                          {% endif %} 
+                        <!-- times--> 
+                      </div>
+                      <span class="side-menu-open side-menu-trigger"><i class="fa fa-bars" aria-hidden="true"></i></span> </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- mobile-menu-area start -->
+    <div class="mobile-menu-area">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="mobile-menu">
+              {% if page.main_menu %}
+                {{ page.main_menu }}
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- mobile-menu-area end --> 
+  </nav>
+{% endif %}
+<div class='header-bg' data-header-bg='{{ theme_page_header_bg}}'></div>

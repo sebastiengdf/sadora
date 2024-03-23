@@ -1,0 +1,68 @@
+.md-objects .md-object.md-layer-6-20-0 {
+z-index: 998 !important; color: #ffffff !important;
+ font-size: 3.8333333333333em;
+ font-weight: 700;
+ font-family: "Raleway";
+}
+.md-objects .md-object.md-layer-6-20-1 {
+z-index: 999 !important; color: #ffffff !important;
+ font-size: 1.25em;
+ font-family: "Raleway";
+}
+.md-objects .md-object.md-layer-6-20-2{font-size: inherit; }
+.md-objects .md-object.md-layer-6-20-2 a {
+background: #ff3300;
+ border: 1px solid #000000;
+ padding-top: 12px;
+ padding-right: 35px;
+ padding-bottom: 12px;
+ padding-left: 35px;
+ color: #ffffff !important;
+ font-size: 1.0833333333333em;
+ font-weight: 400;
+ font-family: "Raleway";
+}
+.md-objects .md-object.md-layer-6-20-2 {z-index: 1000!important;}
+.md-objects .md-object.md-layer-6-20-2 a:hover{
+border-color: #000000;
+}
+.md-objects .md-object.md-layer-6-21-0 {
+z-index: 1000 !important; color: #ffffff !important;
+ text-align: center;
+ font-size: 1.25em;
+ font-weight: 700;
+ font-family: "Raleway";
+}
+.md-objects .md-object.md-layer-6-21-1 {
+z-index: 999 !important; color: #ffffff !important;
+ font-size: 3.8333333333333em;
+ font-weight: 700;
+ font-family: "Raleway";
+}
+.md-objects .md-object.md-layer-6-22-0 {
+z-index: 999 !important; color: #ffffff !important;
+ text-align: center;
+ font-size: 1.25em;
+ font-weight: 700;
+ font-family: "Raleway";
+}
+.md-objects .md-object.md-layer-6-22-1 {
+z-index: 998 !important; color: #ffffff !important;
+ font-size: 3.8333333333333em;
+ font-weight: 700;
+ font-family: "Raleway";
+}
+.md-objects .md-object.md-layer-6-22-2{font-size: inherit; }
+.md-objects .md-object.md-layer-6-22-2 a {
+background: #ff3300;
+ border: 1px solid #000;
+ padding-top: 12px;
+ padding-right: 35px;
+ padding-bottom: 12px;
+ padding-left: 35px;
+ color: #ffffff !important;
+ font-size: 1.0833333333333em;
+ font-weight: 400;
+ font-family: "Raleway";
+}
+.md-objects .md-object.md-layer-6-22-2 {z-index: 1000!important;}

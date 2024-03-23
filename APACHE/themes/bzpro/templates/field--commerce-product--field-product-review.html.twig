@@ -1,0 +1,17 @@
+{% set count_comments = comments|length - 3 %}
+{% if count_comments < 0 %}
+  {% set count_comments = 0 %}
+{% endif %}
+
+{% if count_comments != 0 %}
+	<div class="review_list">
+        <ul>
+	       {{ comments }}
+	    </ul> 
+	</div>
+{% endif %}
+{% if comment_form %}
+	<div class="tab-pane {% if count_comments == 0 %} active {% endif %}" id="add-comment">
+	    {{ comment_form }}
+	</div>
+{% endif %}

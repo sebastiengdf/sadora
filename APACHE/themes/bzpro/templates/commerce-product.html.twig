@@ -1,0 +1,110 @@
+
+{% if page %}
+  {% set img_uri = product_entity.field_image.entity.uri.value %}
+  {% set img_url = file_url(img_uri) %}
+  {% set img_arr = product_entity.field_image %}
+  {% set img_alt = product_entity.field_image.alt %}
+
+  {% set comment_count =  product_entity.field_product_review.comment_count %}
+
+  {% set image454x656 = getUrlByImageStyle(img_uri, 'image_454x656')  %}
+  {% set image360x520 = getUrlByImageStyle(img_uri, 'image_360x520')  %}
+
+<div class="col-md-6">
+  <div class="product_list">
+    <div class="product_image"> <a href="{{ product_url }}">{{ product.variation_field_image }}</a>
+      
+    </div>
+    <div class="product_desc">
+      <div class="product_title">
+        <h2><a href="{{ product_url }}">{{ product.title }}</a></h2>
+      </div>
+      <div class="product_price">
+        <del> {{ product.field_o }} </del>{{ product.variation_price }}
+      </div>
+      <div class="bzshop">
+          {{ product.variations }}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% else %}
+	{% set img_uri = product_entity.field_image.entity.uri.value %}
+{% set img_url = file_url(img_uri) %}
+{% set img_arr = product_entity.field_image %}
+{% set img_alt = product_entity.field_image.alt %}
+
+{% set comment_count =  product_entity.field_product_review.comment_count %}
+
+{% set image454x656 = getUrlByImageStyle(img_uri, 'image_454x656')  %}
+{% set image360x520 = getUrlByImageStyle(img_uri, 'image_360x520')  %}
+ <div id="shop-page">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-5">
+        <div class="left_product_slider">
+          <div id="product_slider" class="e_product_slider"> {{ product.variation_field_image }}</div>
+        </div>
+      </div>
+      <div class="col-md-7">
+        <div class="left_prodoct_desc_single">
+          <div class="left_product_heading">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="pr_title_review">
+                  <h2>{{ product.title }}</h2>    
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="single_pr_price">
+                  <h2>{{ product.variation_price }}</h2>
+                </div>
+                <div class="single_pr_review">
+                  <p>{% if comment_count <= 0 %} 0 {% else %}{{ comment_count }} {% endif %} {{ 'Customer Review'|t }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="left_product_desc">
+            <p>{{ product.field_short_description }}</p>
+            <h6>{{ 'Tags:'|t }} {{ product.field_tags }}</h6>
+          </div>
+          <div class="variations-css">
+            {{ product.variations}}
+          </div>
+          
+          
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="product_extra_info"> 
+          
+          <!-- Nav tabs -->
+          <ul class="nav nav-tabs" role="tablist">
+            <li role="presentation" class="active"><a href="#more_info" aria-controls="more_info" role="tab" data-toggle="tab">{{ 'More info'|t }}</a></li>
+            <li role="presentation"><a href="#review" aria-controls="review" role="tab" data-toggle="tab">{{ 'Review'|t }} ({% if comment_count <= 0 %} 0 {% else %}{{ comment_count }} {% endif %})</a></li>
+          </ul>
+          
+          <!-- Tab panes -->
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="more_info">
+              <div class="product_more_info_tab">
+                <h2>{{ 'More Information'|t }}</h2>
+                <p>{{ product.body }}</p>
+              </div>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="review">
+              <div class="review_list">
+                {{ product.field_product_review }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> 
+{% endif %}

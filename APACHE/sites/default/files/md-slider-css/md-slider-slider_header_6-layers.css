@@ -1,0 +1,29 @@
+.md-objects .md-object.md-layer-8-24-0 {
+background: #000000;
+ z-index: 997 !important; border: 7px dotted #ffffff;
+ padding-top: 55px;
+ padding-right: 55px;
+ padding-bottom: 55px;
+ padding-left: 55px;
+ font-size: 1.3333333333333em;
+}
+.md-objects .md-object.md-layer-8-24-1 {
+z-index: 998 !important; color: #ffffff !important;
+ text-align: center;
+ font-size: 6.6666666666667em;
+ font-weight: 400;
+ font-family: "Indie Flower";
+}
+.md-objects .md-object.md-layer-8-24-2 {
+z-index: 999 !important; color: #ff3300 !important;
+ text-align: center;
+ font-size: 5.8333333333333em;
+ font-family: "Indie Flower";
+}
+.md-objects .md-object.md-layer-8-24-3 {
+z-index: 1000 !important; color: #f1f1f1 !important;
+ text-align: center;
+ font-size: 1.6666666666667em;
+ font-weight: 400;
+ font-family: "Tahoma";
+}

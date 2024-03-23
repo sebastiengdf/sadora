@@ -1,0 +1,12 @@
+{% block content %}
+	<div{{ attributes.addClass('logo-area') }}>
+		{{ title_prefix }}
+        {% if label %}
+            {{ label }}
+        {% endif %}
+        {{ title_suffix }} 	  	
+		<a href="{{ path('<front>') }}"><img class="img-responsive" src="{{ site_logo }}" alt="{{ 'Home'|t }}"></a>
+		{% if site_name %}{{ site_name }}{% endif %}
+	</div>
+{% endblock %}
+

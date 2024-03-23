@@ -1,0 +1,26 @@
+.md-objects .md-object.md-layer-3-17-0 {
+z-index: 1000 !important; padding-top: 8px;
+ padding-right: 8px;
+ padding-bottom: 8px;
+ padding-left: 8px;
+ color: #000000 !important;
+ text-align: center;
+ font-size: 2.5833333333333em;
+}
+.md-objects .md-object.md-layer-3-17-1 {
+background: #ffffff;
+ z-index: 999 !important; padding-top: 8px;
+ padding-right: 8px;
+ padding-bottom: 8px;
+ padding-left: 8px;
+ color: #000000 !important;
+ font-size: 2.6666666666667em;
+}
+.md-objects .md-object.md-layer-3-11-0 {
+background: #ffffff;
+ z-index: 997 !important;}
+.md-objects .md-object.md-layer-3-11-1 {
+z-index: 999 !important; color: #000000 !important;
+ text-align: center;
+ font-size: 2.5833333333333em;
+}

@@ -1,0 +1,329 @@
+{% if id == '_bzpro_block_section' %}
+
+	{% if display_id == 'block_section_service' %}
+		<div class="container">
+			{{ header }}
+		  	<div class="row"></div>
+		  	<div class="row superb-services"> 
+		    	{{ rows }}
+		  	</div>
+		</div>
+	{% elseif display_id == 'block_section_portfolio'%}
+		<div id="Portfolio"> 
+  			<div class="container">
+  				<div id="js-filters-masonry" class="cbp-l-filters-alignRight">
+	  				{{ header }}
+	  			</div>
+  				<div id="js-grid-masonry" class="cbp">
+  					{{ rows }}
+  				</div>
+  			</div>
+  		</div>
+  	{% elseif display_id == 'block_section_portfolio_2'%}
+  		<div id="Portfolio"> 
+  			<div class="container-fluid">
+  				<div id="js-filters-masonry" class="cbp-l-filters-alignRight">
+	  				{{ header }}
+	  			</div>
+  				<div id="js-grid-masonry" class="cbp">
+  					{{ rows }}
+  				</div>
+  			</div>
+  		</div>
+  	{% elseif display_id == 'block_section_portfolio_3'%}
+  		<div id="Portfolio">
+  			<div id="js-filters-masonry-projects" class="cbp-l-filters-buttonCenter">
+  				{{ header }}
+  			</div>
+  			<div id="js-grid-masonry-projects" class="cbp cbp-l-grid-masonry-projects">
+  				{{ rows }}
+  			</div>
+  		</div>
+        {% elseif display_id == 'block_8'%}
+                <div id="Portfolio">
+                        <div id="js-filters-masonry-projects" class="cbp-l-filters-buttonCenter">
+                                {{ header }}
+                        </div>
+                        <div id="js-grid-masonry-projects" class="cbp cbp-l-grid-masonry-projects">
+                                {{ rows }}
+                        </div>
+                </div>
+        {% elseif display_id == 'block_9'%}
+                <div id="Portfolio">
+                        <div id="js-filters-masonry-projects" class="cbp-l-filters-buttonCenter">
+                                {{ header }}
+                        </div>
+                        <div id="js-grid-masonry-projects" class="cbp cbp-l-grid-masonry-projects">
+                                {{ rows }}
+                        </div>
+                </div>
+	{% elseif display_id == 'block_section_testimonial' %}	
+		<div class="container">
+			{{ header }}
+			<div class="testimonials-slider testimonials-carousel"> 
+				{{ rows }}
+			</div>
+		</div>
+	{% elseif display_id == 'block_section_best_event_3'%}
+		<div class="events-section latest-events">
+  			<div class="container-fluid">	
+  				{{ header }}
+	  			<div class="row clearfix"> 
+	  				{{ rows }}
+	  			</div>
+  			</div>
+  		</div>
+	{% elseif display_id == 'block_section_best_event_2'%}
+		<div class="events-section latest-events">
+  			<div class="container">
+		    	{{ header }}
+			    <div class="row clearfix"> 
+			    {{ rows }}
+				</div>
+			</div>
+		</div>
+	{% elseif display_id == 'block_section_best_event_1'%}
+		<div class="events-section latest-events">
+  			<div class="container">
+  				{{ header }}
+	  			<div class="row clearfix"> 
+	  				{{ rows }}
+	  			</div>
+	  		</div>
+  		</div>
+  	{% elseif display_id == 'block_section_blog_3'%}
+  		<div id="blog" class="blog-div-area">
+ 			<div class="container-fluid">
+ 				{{ header }}
+ 				<div class="blog-content-div">
+      				<div class="row">
+      					{{ rows }}
+      				</div>
+      			</div>
+      		</div>
+      	</div>
+  	{% elseif display_id == 'block_section_blog_2'%}
+  		<div id="blog" class="blog-div-area">
+ 			<div class="container">
+ 				{{ header }}
+	 			<div class="blog-content-div">
+	      			<div class="row">
+	      				{{ rows }}
+ 					</div>
+ 				</div>
+ 			</div>
+ 		</div>
+  	{% elseif display_id == 'block_section_blog_1'%}
+  		<div id="blog" class="text-center">
+  			<div class="container">
+  				{{ header }}
+				<div id="js-grid-blog-posts" class="cbp">
+					{{ rows }}
+				</div>
+			</div>
+		</div>
+  	{% elseif display_id == 'block_section_advisor'%}
+  		<div class="events-section latest-events">
+  			<div class="container">
+  				{{ header }}
+	  			<div class="row clearfix"> 
+	  				{{ rows }}
+	  			</div>
+	  		</div>
+	  	</div>
+
+	{% elseif display_id == 'block_section_best_event'%}
+		<div class="container">
+			{{ header }}
+			<div class="row clearfix"> 
+				{{ rows }}
+				{% if attachment_after %}
+
+				<div class="column default-featured-column links-column col-lg-4 col-md-6 col-sm-12 col-xs-12">
+			        <article class="inner-box">
+			          	<div class="vertical-links-outer">
+							{{ attachment_after }}
+						</div>
+			        </article>
+			     </div>
+			    {% endif %}
+			</div>
+		</div>
+	{% elseif display_id == 'block_section_partner'%}
+		<div class="sponsors">
+  			<div class="container">
+    			<div class="slider-outer"> 
+      				<!--Sponsors Slider-->
+      				<ul class="sponsors-slider">
+      					{{ rows }}
+      				</ul>
+    			</div>
+ 			 </div>
+		</div>
+	{% elseif display_id == 'block_section_blog' %}
+		<div id="blog" class="blog-div-area">
+  			<div class="container">
+  				<div class="row">
+  				{{ header }}
+  				</div>
+  				<div class="blog-content-div">
+      				<div class="row">
+      					{{ rows }}
+      				</div>
+      			</div>
+  			</div>
+  		</div>
+  	{% elseif display_id == 'block_session_team' %}
+		<div class="container">
+		 	{{ header }}
+ 			 <div class="row">
+      			<div class="col-sm-12">
+			        <div class="ms-staff-carousel">
+			          <div class="master-slider" id="teamslider">
+          					{{ rows }}
+          				</div>
+          				<div class="ms-staff-info" id="staff-info"> </div>
+          			</div>
+          		</div>
+          	</div>
+      	</div>
+    {% elseif display_id == 'block_section_patner_2' %}
+    	<div id="services" class="text-center">
+  			<div class="container">
+  				{{ header }}
+  				<div class="row">
+  					{{ rows }}
+  				</div>
+  			</div>
+  		</div>      	
+	{% else %}
+	    {%
+	        set classes = [
+	            dom_id ? 'js-view-dom-id-' ~ dom_id,
+	        ]
+	    %}
+	        {{ exposed }}
+	    <div{{ attributes.addClass(classes) }}>
+	        {# {{ title_prefix }} #}
+	        {{ title }}
+	        {#  {{ title_suffix }} #}
+	        {{ header }}
+	        {{ attachment_before }}
+	        {{ rows }}
+	        {{ footer }}
+	        {{ pager }}
+	        {{ attachment_after }}
+	    </div>
+	{% endif %}
+{% elseif id=='_bzpro_blog_section_2'%}
+	{% if display_id == 'block_section_footer_lastest' %}
+			{{ header }}
+			{{ rows }}	
+	{% endif %}
+{% elseif id == 'blog' %}
+
+        {{ exposed }}
+    <div{{ attributes }}>
+	    {% if blog_style == 'style1' %}
+	    		{{ title }}
+		        {{ title_suffix }} 
+	    	<div id="js-grid-blog-posts" class="cbp">
+		        {# {{ title_prefix }} #}
+		        
+		        {{ header }}
+		        {{ attachment_before }}
+		        {{ rows }}
+		        {{ footer }}
+		        {{ pager }}
+		        {{ attachment_after }}
+		    </div>
+	    {% else %}
+		    {%
+		        set classes = [
+		            dom_id ? 'js-view-dom-id-' ~ dom_id,
+		        ]
+		    %}
+		        {{ exposed }}
+		    <div{{ attributes.addClass(classes) }}>
+		        {# {{ title_prefix }} #}
+		        {{ title }}
+		        {#  {{ title_suffix }} #}
+		        {{ header }}
+		        {{ attachment_before }}
+		        {{ rows }}
+		        {{ footer }}
+		        {{ pager }}
+		        {{ attachment_after }}
+	    	</div>
+	    {% endif %}
+    </div>
+{% elseif id == 'taxonomy_term' %}
+	{{ rows }}
+{% elseif id == '_bzpro_taxonomy_terms' %}
+	{% if display_id == 'block_taxonomy_portfolio_category' %}
+	
+		{{ header }}
+		{{ rows }}
+	{% else %}
+		{%
+	        set classes = [
+	            dom_id ? 'js-view-dom-id-' ~ dom_id,
+	        ]
+	    %}
+	        {{ exposed }}
+	    <div{{ attributes.addClass(classes) }}>
+	        {# {{ title_prefix }} #}
+	        {{ title }}
+	        {#  {{ title_suffix }} #}
+	        {{ header }}
+	        {{ attachment_before }}
+	        {{ rows }}
+	        {{ footer }}
+	        {{ pager }}
+	        {{ attachment_after }}
+	    </div>
+	{% endif %}
+{% elseif id == 'product_catalog' %}
+	{% if display_id == 'block_lastest_product' %}
+		<div class="widget lt_product">
+			{{ header }}
+			<ul class="clearfix">
+				{{ rows }}
+			</ul>
+		</div>
+
+	{% else %} 
+        {{ exposed }}
+    <div{{ attributes }}>
+        {# {{ title_prefix }} #}
+        {{ title }}
+        {#  {{ title_suffix }} #}
+        {{ header }}
+        {{ attachment_before }}
+        {{ rows }}
+        {{ footer }}
+        {{ pager }}
+        {{ attachment_after }}
+    </div>
+    {% endif %}
+    
+{% else %}
+    {%
+        set classes = [
+            dom_id ? 'js-view-dom-id-' ~ dom_id,
+        ]
+    %}
+    <div{{ attributes.addClass(classes) }}>
+    	{{ exposed }}
+
+        {# {{ title_prefix }} #}
+        {{ title }}
+        {#  {{ title_suffix }} #}
+        {{ header }}
+        {{ attachment_before }}
+        {{ rows }}
+        {{ footer }}
+        {{ pager }}
+        {{ attachment_after }}
+    </div>
+{% endif %}

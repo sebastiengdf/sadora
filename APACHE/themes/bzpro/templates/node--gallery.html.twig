@@ -1,0 +1,135 @@
+{% set gallery_type = node.field_gallery_type.value %}
+
+{% set images = node.field_image %}
+{% if gallery_type == 'type1' %}
+<div id="best-work" class="our-best-work ">
+  <div class="container-fluid">
+       {{ content.body }}
+      <div class="row">
+        {% for image in images %}
+          {% set img_uri = image.entity.uri.value %}
+          {% set image421x319 = getUrlByImageStyle(img_uri, 'image_421x319')  %}
+
+          <div class="col-md-3 col-sm-6">
+            <div data-wow-delay=".2s" data-wow-duration="1.5s" data-wow-offset="10" class="single-work wow fadeInUp animated" style="visibility: visible; animation-duration: 1.5s; animation-delay: 0.2s; animation-name: fadeInUp;"> <a class="work" href="{{ image421x319 }}"><img class="img-responsive" src="{{ image421x319 }}" alt=""> </a>
+              <div class="work-info">
+                <h5>{{ image.title }}</h5>
+                <a class="work-link" href="{{ image421x319 }}"> <i class="fa fa-link"></i> </a> 
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+  </div>
+</div>
+{% elseif gallery_type == 'type2' %}
+<div id="best-work" class="our-best-work ">
+  <div class="container">
+       {{ content.body }}
+      <div class="row">
+        {% for image in images %}
+          {% set img_uri = image.entity.uri.value %}
+          {% set image292x221 = getUrlByImageStyle(img_uri, 'image_292x221') %}
+
+          <div class="col-md-3 col-sm-6">
+            <div data-wow-delay=".1s" data-wow-duration="1.5s" data-wow-offset="10" class="single-work wow fadeInUp animated" style="visibility: visible; animation-duration: 1.5s; animation-delay: 0.1s; animation-name: fadeInUp;"> <a class="work" href="{{ image292x221 }}"><img class="img-responsive" src="{{ image292x221 }}" alt=""> </a>
+              <div class="work-info">
+                <h5>{{ image.title }}</h5>
+                <a class="work-link" href="{{ image292x221 }}"> <i class="fa fa-link"></i> </a> 
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+  </div>
+</div>    
+{% elseif gallery_type == 'type3' %}
+    <div id="best-work" class="our-best-work ">
+        <div class="container-fluid">
+         {{ content.body }}
+        <div class="row">
+            {% for image in images %}
+            {% set img_uri = image.entity.uri.value %}
+            {% set image569×429 = getUrlByImageStyle(img_uri, 'image_569x429') %}
+                  <div class="col-md-4 col-sm-6">
+                    <div data-wow-delay=".1s" data-wow-duration="1.5s" data-wow-offset="10" class="single-work wow fadeInUp animated" style="visibility: visible; animation-duration: 1.5s; animation-delay: 0.1s; animation-name: fadeInUp;"> <a class="work" href="{{ image569×429 }}"><img class="img-responsive" src="{{ image569×429 }}" alt=""> </a>
+              <div class="work-info">
+                <h5>{{ image.title }}</h5>
+                <a class="work-link" href="{{ image569×429 }}"> <i class="fa fa-link"></i> </a> 
+              </div>
+            </div>
+                  </div>
+        {% endfor %}
+        </div>
+        </div>
+    </div>
+{% endif %}
+<!-- <div id="best-work" class="our-best-work ">
+  <div class="container">
+    <div class="section-title center text-center">
+      <h2>Gallery</h2>
+      <hr>
+      <div class="mid"></div>
+      <p class="para">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus <br>
+        qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+    </div>
+    <div class="row">
+      <div class="col-md-3 col-sm-6">
+        <div data-wow-delay=".1s" data-wow-duration="1.5s" data-wow-offset="10" class="single-work wow fadeInUp animated" style="visibility: visible; animation-duration: 1.5s; animation-delay: 0.1s; animation-name: fadeInUp;"> <a class="work" href="img/gallery/01_gallery.jpg"><img class="img-responsive" src="img/gallery/01_gallery.jpg" alt=""> </a>
+          <div class="work-info">
+            <h5>Work Title</h5>
+            <a class="work-link" href="http://localhost/bzpro/bzpro-html/img/gallery/02_gallery.jpg"> <i class="fa fa-link"></i> </a> </div>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-6">
+        <div data-wow-delay=".2s" data-wow-duration="1.5s" data-wow-offset="10" class="single-work wow fadeInUp animated" style="visibility: visible; animation-duration: 1.5s; animation-delay: 0.2s; animation-name: fadeInUp;"> <a class="work" href="img/gallery/02_gallery.jpg"><img class="img-responsive" src="img/gallery/02_gallery.jpg" alt=""> </a>
+          <div class="work-info">
+            <h5>Work Title</h5>
+            <a class="work-link" href=""> <i class="fa fa-link"></i> </a> </div>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-6">
+        <div data-wow-delay=".3s" data-wow-duration="1.5s" data-wow-offset="10" class="single-work wow fadeInUp animated" style="visibility: visible; animation-duration: 1.5s; animation-delay: 0.3s; animation-name: fadeInUp;"> <a class="work" href="img/gallery/03_gallery.jpg"><img class="img-responsive" src="img/gallery/03_gallery.jpg" alt=""> </a>
+          <div class="work-info">
+            <h5>Work Title</h5>
+            <a class="work-link" href=""> <i class="fa fa-link"></i> </a> </div>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-6">
+        <div data-wow-delay=".4s" data-wow-duration="1.5s" data-wow-offset="10" class="single-work wow fadeInUp animated" style="visibility: visible; animation-duration: 1.5s; animation-delay: 0.4s; animation-name: fadeInUp;"> <a class="work" href="img/gallery/04_gallery.jpg"><img class="img-responsive" src="img/gallery/04_gallery.jpg" alt=""> </a>
+          <div class="work-info">
+            <h5>Work Title</h5>
+            <a class="work-link" href=""> <i class="fa fa-link"></i> </a> </div>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-6">
+        <div data-wow-delay=".1s" data-wow-duration="1.5s" data-wow-offset="10" class="single-work wow fadeInUp animated" style="visibility: visible; animation-duration: 1.5s; animation-delay: 0.1s; animation-name: fadeInUp;"> <a class="work" href="img/gallery/05_gallery.jpg"><img class="img-responsive" src="img/gallery/05_gallery.jpg" alt=""> </a>
+          <div class="work-info">
+            <h5>Work Title</h5>
+            <a class="work-link" href=""> <i class="fa fa-link"></i> </a> </div>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-6">
+        <div data-wow-delay=".2s" data-wow-duration="1.5s" data-wow-offset="10" class="single-work wow fadeInUp animated" style="visibility: visible; animation-duration: 1.5s; animation-delay: 0.2s; animation-name: fadeInUp;"> <a class="work" href="img/gallery/06_gallery.jpg"><img class="img-responsive" src="img/gallery/06_gallery.jpg" alt=""> </a>
+          <div class="work-info">
+            <h5>Work Title</h5>
+            <a class="work-link" href=""> <i class="fa fa-link"></i> </a> </div>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-6">
+        <div data-wow-delay=".3s" data-wow-duration="1.5s" data-wow-offset="10" class="single-work wow fadeInUp animated" style="visibility: visible; animation-duration: 1.5s; animation-delay: 0.3s; animation-name: fadeInUp;"> <a class="work" href="img/gallery/07_gallery.jpg"><img class="img-responsive" src="img/gallery/07_gallery.jpg" alt=""> </a>
+          <div class="work-info">
+            <h5>Work Title</h5>
+            <a class="work-link" href=""> <i class="fa fa-link"></i> </a> </div>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-6">
+        <div data-wow-delay=".4s" data-wow-duration="1.5s" data-wow-offset="10" class="single-work wow fadeInUp animated" style="visibility: visible; animation-duration: 1.5s; animation-delay: 0.4s; animation-name: fadeInUp;"> <a class="work" href="img/gallery/08_gallery.jpg"><img class="img-responsive" src="img/gallery/08_gallery.jpg" alt=""> </a>
+          <div class="work-info">
+            <h5>Work Title</h5>
+            <a class="work-link" href=""> <i class="fa fa-link"></i> </a> </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->

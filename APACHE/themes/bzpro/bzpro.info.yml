@@ -1,0 +1,39 @@
+name: Bzpro
+type: theme
+description: 'Bzpro - Construction HTML Template'
+core: 8.x
+base theme: classy
+screenshot: screenshot.png
+libraries:
+  - bzpro/bzpro-lib
+stylesheets-remove:
+  - core/themes/stable/css/views/views.module.css
+  - core/themes/stable/css/system/components/align.module.css
+  - core/assets/vendor/normalize-css/normalize.css
+  - core/modules/system/css/system.module.css
+  - core/modules/system/css/system.theme.css
+  - core/modules/views/css/views.module.css
+  - core/themes/stable/css/system/components/progress.module.css
+  - core/themes/classy/css/components/menu.css
+
+regions:
+  search: 'Search'
+  top_header: 'Top header'
+  sidenav: 'SideNav'
+  header: 'Header'
+  breadcrumb: 'Breadcrumb'
+  main_menu: 'Main menu'
+  sidebar_product: 'Sidebar Product'
+  cart: 'Cart'
+  slider: 'Slider'
+  content: 'Main content'
+  blog_sidebar: 'Blog sidebar'
+  sidebar: 'Sidebar'
+  section: 'Section content'
+  footer: 'Footer'
+  footer_menu: 'Footer Menu'
+  bottom_footer: 'Bottom footer'
+  footer_simplenews: 'Footer Simplenews'
+  last_footer: 'Last Footer'
+  auto_hidden_block: 'Auto hidden blocks'
+  

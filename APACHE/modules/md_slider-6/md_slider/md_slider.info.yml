@@ -1,0 +1,12 @@
+name: MD Slider
+type: module
+description: Responsive timeline slider with touch-swipe navigation.
+package: MegaDrupal
+dependencies:
+  - imce
+
+version: '8.x-1.3'
+core: 8.x
+project: 'md_slider'
+project status url: ''
+datestamp: 1514953586

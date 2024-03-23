@@ -1,0 +1,85 @@
+{% if node.getRevisionAuthor().field_description.value %}
+imagecarroussel  {% set description = node.getRevisionAuthor().field_description.value %}
+{% endif %}
+
+{% if node.getRevisionAuthor().field_full_name.value %}
+    {% set full_name = node.getRevisionAuthor().field_full_name.value %}
+{% endif %}
+{% if full_name is null %}
+  {% set full_name =  author_name %}
+{% endif %}
+
+{% set img_uri = node.field_image.entity.uri.value %}
+
+{% set img_url = file_url(img_uri) %}
+{% set img_alt = node.field_image.alt %}
+{% set length_image = node.field_image|length  %}
+{% set img_arr = node.field_image %}
+{% set comment_count =  node.field_blog_comments.comment_count %}
+
+{% set image746x518 = getUrlByImageStyle(img_uri, 'image_746x518')  %}
+
+
+{% if not page %}
+	
+{% else %}
+	<div id="portfolio-single" style="padding:100px 0">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-12">
+           <div class="row">
+		<div class="col-lg-12 col-md-12">
+			<div class="left_product_slider">
+			  <div id="product_slider" class="e_product_slider"> <img id="imgprincipale" src="{{ image746x518 }}" alt="{{ node.title.value }}"> </div>
+			</div>
+		</div>
+                 <div class="col-lg-12 col-md-12">
+                     {{ drupal_view('_bzpro_block_section','block_section_partner') }}
+                </div>
+	    </div>
+      </div>
+      <div class="col-lg-4 col-md-12">
+        <div class="left_prodoct_desc_single">
+          <div class="left_product_heading">
+            <div class="row">
+              <div class="col-md-12">
+                 <div class="pr_title_review">
+                  <h2>{{ node.title.value }}</h2>
+
+                </div>
+
+		</div>
+             
+            </div>
+          </div>
+          <div class="left_product_desc">
+            <p>{{ content.field_type_marche }}</p>
+          </div>
+          <div class="product_size_color pt-0-projet">
+            <div class="row left_product_desc pt-0-projet">
+               <div class="col-md-12"><br>
+		  	   <h3 style="font-weight:bold">DESCRIPTION</h3>
+			   <p>{{ node.field_description_portfolio.value|raw }}</p>
+	       </div>
+              <div class="col-md-12 pd-activite-projet">
+                <h3 style="font-weight:bold">Activité</h3>
+                <p>{{ content.field_portfolio_category }}</p>
+              </div>
+            </div>
+          </div>
+         
+          
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="product_extra_info"> 
+          
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endif %}

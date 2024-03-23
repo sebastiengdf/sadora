@@ -1,0 +1,71 @@
+bzpro-lib:
+  version: VERSION
+  css:
+    theme:
+      css/bootstrap.css: {}
+      fonts/font-awesome/css/font-awesome.css: {}
+      css/Simple-Line-Icons-Webfont/simple-line-icons.css: {}
+      css/et-line-font/et-line-font.css: {}
+
+      # Main Menu CSS -->
+      css/meanmenu.min.css: {}
+
+      # Master slider CSS -->
+      css/main.css: {}
+      css/slider-style.css: {}
+
+      # FONT AWESOME -->
+      https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css: {}
+
+      # Prettyphoto-->
+      css/prettyphoto.css: {}
+
+      #Master slider-->
+      master-slider/style/masterslider.css: {}
+      master-slider/skins/default/style.css: {}
+
+      # OWL STYLE CSS -->
+      css/owl.css: {}
+
+      # Stylesheet -->
+      css/style.css: {}
+
+      # Responsive -->
+      css/responsive.css: {}
+      css/update.css: {}
+      css/animate.min.css: {}      
+  js: 
+    #js/jquery.min.js: {} 
+    # Bootstrap JS  --> 
+    js/bootstrap.js: {} 
+    # Prettyphoto JS  --> 
+    js/jquery.prettyphoto.js: {} 
+    #jqBootstrapValidation js file--> 
+    js/jqBootstrapValidation.js: {} 
+    #contact js file--> 
+    #js/contact_me.js: {} 
+    # Meanmenu Js --> 
+    js/jquery.meanmenu.min.js: {} 
+    # OWL JS  --> 
+    js/owl.js: {}
+    #master slider--> 
+    master-slider/js/masterslider.min.js: {} 
+    # main js --> 
+
+    js/main.js: {} 
+    js/update.js: {} 
+    js/custom.js: {}    
+  dependencies:
+    - core/jquery
+    - core/drupalSettings 
+
+bzpro-lib-cubeportfolio:
+  version: VERSION
+  css:
+    theme:
+      css/cubeportfolio.min.css: {}    
+  js:
+    js/jquery.cubeportfolio.min.js: {} 
+    js/main-portfolio.js: {}
+
+

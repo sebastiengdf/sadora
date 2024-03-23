@@ -1,0 +1,80 @@
+{% if node.getRevisionAuthor().field_description.value %}
+  {% set description = node.getRevisionAuthor().field_description.value %}
+{% endif %}
+
+{% if node.getRevisionAuthor().field_full_name.value %}
+    {% set full_name = node.getRevisionAuthor().field_full_name.value %}
+{% endif %}
+{% if full_name is null %}
+  {% set full_name =  author_name %}
+{% endif %}
+
+{% set img_uri = node.field_image.entity.uri.value %}
+
+{% set img_url = file_url(img_uri) %}
+{% set img_alt = node.field_image.alt %}
+{% set length_image = node.field_image|length  %}
+{% set img_arr = node.field_image %}
+{% set comment_count =  node.field_blog_comments.comment_count %}
+
+{% set image707x525 = getUrlByImageStyle(img_uri, 'image_707x525')  %}
+
+{% set image366x275 = getUrlByImageStyle(img_uri, 'image_366x275')  %}
+{% set image536x401 = getUrlByImageStyle(img_uri, 'image_536x401')  %}
+{% set image625x468 = getUrlByImageStyle(img_uri, 'image_625x468')  %}
+
+{% if not page %}
+	<div class="cbp-item motion logos"> <a href="{{ url }}" class="cbp-caption">
+	<div class="cbp-caption-defaultWrap"> <img src="{{ image366x275 }}" alt=""> </div>
+	<div class="cbp-caption-activeWrap">
+		<div class="cbp-l-caption-alignCenter">
+			<div class="cbp-l-caption-body">
+				<div class="cbp-l-caption-text">VIEW POST</div>
+			</div>
+		</div>
+	</div>
+	</a> <a href="{{ url }}" class="cbp-l-grid-blog-title">{{ node.getTitle() }}</a>
+	<div class="cbp-l-grid-blog-date">{{ node.created.value|date('d F Y') }}</div>
+	<div class="cbp-l-grid-blog-split">|</div>
+	<a href="#" class="cbp-l-grid-blog-comments">{{ comment_count }} comments</a>
+	<div class="cbp-l-grid-blog-desc">{{ node.body.summary|length > 170 ? node.body.summary|slice(0,170) ~ '...' : node.body.summary }}</div>
+</div>
+{% else %}
+	<div class="blog-news-div no-padd-bottom no-padd-top padd-right-20"> 
+	  <!--News Column-->
+	  <div class="column blog-news-column">
+	    <article class="inner-box">
+	      <div class="blog-content-div">
+	        <div class="row">
+	          <div class="col-md-10 col-sm-10 col-xs-12">
+	            <div class="single-blog">
+	              <div class="feature-images"> <img alt="{{ title }}" src="{{ image707x525 }}"> 
+	                <div class="overley"></div>
+	              </div>
+	              <div class="blog-content">
+	                <h3><a href="{{ url }}">{{ node.title.value }}</a></h3>
+	                
+	                <p>{{ content|without('field_blog_comments','field_image') }}</p>
+	              </div>
+	            </div>
+	          </div>
+	        </div>
+	      </div>
+	    </article>
+	  </div>
+	  <!--News Column--> 
+	</div>
+	<!--Comments Area-->
+	<div class="col-md-10 col-sm-10 col-xs-12">
+	  <div class="row">
+	    <div class="comments-area">
+	    		
+	      <div class="group-title text-uppercase">
+	        <h2>{{ comment_count }} {{ 'Comments'|t }}</h2>
+	      </div>
+	      {{ content.field_blog_comments }}
+	    </div>
+	  </div>
+	</div>
+
+{% endif %}

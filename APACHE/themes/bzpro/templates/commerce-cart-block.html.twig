@@ -1,0 +1,12 @@
+<div{{ attributes}}>
+  <a href="#" class="cart-area floatright"> <i class="fa fa-shopping-cart"></i> <span>{{ count_text }}</span> </a>
+  {% if content %}
+  <ul class="chart-scroll cart-css">
+    {{ content }}
+    <li><div class="btn-cart">{{ links }}</div></li>
+  </ul>
+  {% endif %}
+</div>
+
+
+

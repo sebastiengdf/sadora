@@ -1,0 +1,11 @@
+.md-objects .md-object.md-layer-7-23-0 {
+background: #ff3300;
+ z-index: 1000 !important; padding-top: 30px;
+ padding-right: 30px;
+ padding-bottom: 30px;
+ padding-left: 30px;
+ color: #ffffff !important;
+ font-size: 2.0833333333333em;
+ font-weight: 400;
+ font-family: "Tahoma";
+}

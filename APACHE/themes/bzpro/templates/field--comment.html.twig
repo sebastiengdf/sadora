@@ -1,0 +1,18 @@
+{% set count_comments = comments|length - 3 %}
+{% if count_comments < 0 %}
+  {% set count_comments = 0 %}
+{% endif %}
+
+{% if count_comments != 0 %}
+  <div class="comment-box">
+      
+      {{ comments }}
+  </div>
+{% endif %}
+{% if comment_form %}
+  <div class="reply-comment-section">
+    <h4 class="title-inner">{{ 'Leave a Comment'|t }}</h4>
+        {{ comment_form }}
+  </div>
+{% endif %}
+
